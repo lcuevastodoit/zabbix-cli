@@ -5227,20 +5227,22 @@ class zabbixcli(cmd.Cmd):
                                                           'name': item['name'],
                                                           'key': item['key_'],
                                                           'lastvalue': item['lastvalue'],
+                                                          'lastclock': item['lastclock'],
                                                           'host': host_name}
                 else:
                     result_columns[result_columns_key] = {'1': item['itemid'],
                                                           '2': item['name'],
                                                           '3': item['key_'],
                                                           '4': item['lastvalue'],
-                                                          '5': host_name}
+                                                          '5': item['lastclock'],
+                                                          '6': host_name}
 
                 result_columns_key = result_columns_key + 1
             #
             # Generate output
             #
             self.generate_output(result_columns,
-                                 ['ItemID', 'Name', 'Key', 'Last value', 'Host name'],
+                                 ['ItemID', 'Name', 'Key', 'Last value', 'Clock','Host name'],
                                  ['Name', 'Key', 'Host name'],
                                  ['ItemID', 'Last value'],
                                  FRAME)
